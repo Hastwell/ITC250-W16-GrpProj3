@@ -93,6 +93,7 @@ if($foundRecord)
     <h3 align="center">A Yummy <?=$MuffinName;?> Muffin!</h3>
     <div align="center"><a href="<?=VIRTUAL_PATH;?>demo/demo_list.php">More Muffins?!?</a></div>
     <table align="center">
+        
         <tr>
             <td><img src="<?=VIRTUAL_PATH;?>upload/m<?=$myID;?>.jpg" /></td>
             <td>We make fresh <?=$MuffinName;?> muffins daily!</td>

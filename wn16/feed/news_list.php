@@ -56,6 +56,7 @@ get_header(); #defaults to theme header or header_inc.php
 <p>Use <b>demo_list.php</b> and <b>demo_view.php</b> as a starting point for building your own List/View web application!</p>
 <?php
 
+
 # connection comes first in mysqli (improved) function
 $result = mysqli_query(IDB::conn(),$sql) or die(trigger_error(mysqli_error(IDB::conn()), E_USER_ERROR));
 
