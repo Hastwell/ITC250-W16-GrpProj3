@@ -19,6 +19,6 @@ $url = $_GET['url'];
     $xml = simplexml_load_string($resp);
 
     foreach ($xml->channel->item as $story) {
-        $article = new Feed($story);
+        $article = new Article($story);
         $article->getFeed();
     }

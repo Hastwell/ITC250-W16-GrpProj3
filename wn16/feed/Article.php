@@ -6,7 +6,7 @@
  * Date: 2/18/16
  * Time: 10:51 AM
  */
-class Feed
+class Article
 {
 
     private $story;
@@ -29,7 +29,7 @@ class Feed
     }
 
 
-    public function getFeed(){
+    public function getArticle(){
 
         return <<<ARTICLE
 
