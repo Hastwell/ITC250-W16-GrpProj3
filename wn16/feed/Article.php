@@ -13,6 +13,7 @@ class Article
     private $title;
     private $date;
     private $body;
+    private $link;
 
     /**
      * Feed constructor.
@@ -25,6 +26,7 @@ class Article
         $this->title = $story->title;
         $this->date = $story->pubDate;
         $this->body = $story->description;
+        $this->link = $story->link;
     }
 
 
@@ -33,18 +35,10 @@ class Article
         return <<<ARTICLE
 
             <article>
-                <h2>$this->title</h2>
+                <a href="$this->link"><h2>$this->title</h2></a>
                 <h4>$this->date</h4>
                 <p>$this->body</p>
             </article>
-            
-            
-            <article>
-                <a href=$this->link></a
-            
-            
-            </article>
-            
 
 ARTICLE;
 

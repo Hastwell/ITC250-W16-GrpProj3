@@ -9,16 +9,23 @@
 require_once 'Article.php';
 
 
+//if( ini_get('allow_url_fopen') ) {
+//    echo "allow_url_fopen is enabled.";
+//}else { echo "allow_url_fopen is disabled.";}
 
-$url = $_GET['url'];
 
 
 
-    $req = $url;
+
+
+    $req = $_GET['url'];
     $resp = file_get_contents($req);
     $xml = simplexml_load_string($resp);
 
+    //var_dump($xml);
+
+
     foreach ($xml->channel->item as $story) {
         $article = new Article($story);
-        $article->getFeed();
+        echo $article->getArticle();
     }
