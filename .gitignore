@@ -1,2 +1,3 @@
 # Ignore DB Credentials
 /inc_0700/credentials_inc.php
+/inc_0700/config_inc.php

@@ -24,7 +24,7 @@ class Article
         $this->story = $story;
 
         $this->title = $story->title;
-        $this->date = $story->pubDate;
+        $this->date = date('M d, Y',strtotime($story->pubDate));
         $this->body = $story->description;
         $this->link = $story->link;
     }
@@ -34,7 +34,7 @@ class Article
 
         return <<<ARTICLE
 
-            <article>
+            <article id="news-article">
                 <a href="$this->link"><h2>$this->title</h2></a>
                 <h4>$this->date</h4>
                 <p>$this->body</p>

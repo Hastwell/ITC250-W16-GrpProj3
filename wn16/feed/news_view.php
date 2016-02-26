@@ -48,7 +48,8 @@ $foundRecord = FALSE; # Will change to true, if record found!
 
 # connection comes first in mysqli (improved) function
 $result = mysqli_query(IDB::conn(),$sql) or die(trigger_error(mysqli_error(IDB::conn()), E_USER_ERROR));
-echo '<h3 align="center"><'.smartTitle().'</h3>';
+
+echo "<h3 style='text-align: center'>News Feeds Available</h3>";
 
 if(mysqli_num_rows($result) > 0)
 {#records exist - process
@@ -59,6 +60,7 @@ if(mysqli_num_rows($result) > 0)
      *  COLUMNS
      *
      */
+    echo "<ul id='feedlist'>";
     while ($row = mysqli_fetch_assoc($result))
     {
         $Title = dbOut($row['FeedName']);
@@ -66,7 +68,7 @@ if(mysqli_num_rows($result) > 0)
         if($foundRecord)
         {#records exist - show muffin!
             ?>
-            <a href="news_feed.php?url=<?=$Link?>"<h3><?=$Title?></h3></a>
+            <li style="text-align: center"><a href="news_feed.php?url=<?=$Link?>"<h3><?=$Title?></h3></a></li>
             <hr>
             <?
         }else{//no such muffin!
@@ -76,6 +78,8 @@ if(mysqli_num_rows($result) > 0)
 
 
     }
+
+    echo "</ul>";
 }
 
 @mysqli_free_result($result); # We're done with the data!
