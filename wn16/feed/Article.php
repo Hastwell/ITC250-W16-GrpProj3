@@ -10,7 +10,6 @@ class Article
 {
 
     private $story;
-
     private $title;
     private $date;
     private $body;
@@ -38,6 +37,14 @@ class Article
                 <h4>$this->date</h4>
                 <p>$this->body</p>
             </article>
+            
+            
+            <article>
+                <a href=$this->link></a
+            
+            
+            </article>
+            
 
 ARTICLE;
 
