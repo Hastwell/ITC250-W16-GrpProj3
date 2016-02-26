@@ -65,6 +65,7 @@ $result = mysqli_query(IDB::conn(),$sql) or die(trigger_error(mysqli_error(IDB::
  * RESULTS HERE
  *
  */
+
 if(mysqli_num_rows($result) > 0)
 {#records exist - process
     while($row = mysqli_fetch_assoc($result))
