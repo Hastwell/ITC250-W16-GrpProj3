@@ -70,7 +70,7 @@ if(mysqli_num_rows($result) > 0)
             ?>
             <li style="text-align: center"><a href="news_feed.php?url=<?=$Link?>"<h3><?=$Title?></h3></a></li>
             <hr>
-            <?
+            <?php
         }else{//no such muffin!
             echo '<div align="center">No Items Match Category.</div>';
             echo '<div align="center"><a href="' . VIRTUAL_PATH . 'news_list.php">BACK</a></div>';
