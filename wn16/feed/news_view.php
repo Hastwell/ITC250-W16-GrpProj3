@@ -18,7 +18,7 @@ require '../inc_0700/config_inc.php'; #provides configuration, pathing, error ha
 if(isset($_GET['id']) && (int)$_GET['id'] > 0){#proper data must be on querystring
     $myID = (int)$_GET['id']; #Convert to integer, will equate to zero if fails
 }else{
-    myRedirect(VIRTUAL_PATH . "feed/feed_list.php");
+    myRedirect(VIRTUAL_PATH . "feed/news_list.php");
 }
 
 
