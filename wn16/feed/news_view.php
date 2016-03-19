@@ -1,24 +1,24 @@
 <?php
 /**
- * demo_view.php along with demo_list.php provides a sample web application
+ * feed_view.php along with feed_list.php provides a sample web application
  *
  * @package nmListView
  * @author Bill Newman <williamnewman@gmail.com>
  * @version 2.10 2012/02/28
  * @link http://www.newmanix.com/
  * @license http://opensource.org/licenses/osl-3.0.php Open Software License ("OSL") v. 3.0
- * @see demo_list.php
+ * @see feed_list.php
  * @todo none
  */
 
 # '../' works for a sub-folder.  use './' for the root
 require '../inc_0700/config_inc.php'; #provides configuration, pathing, error handling, db credentials
 
-# check variable of item passed in - if invalid data, forcibly redirect back to demo_list.php page
+# check variable of item passed in - if invalid data, forcibly redirect back to feed_list.php page
 if(isset($_GET['id']) && (int)$_GET['id'] > 0){#proper data must be on querystring
     $myID = (int)$_GET['id']; #Convert to integer, will equate to zero if fails
 }else{
-    myRedirect(VIRTUAL_PATH . "demo/demo_list.php");
+    myRedirect(VIRTUAL_PATH . "feed/feed_list.php");
 }
 
 
