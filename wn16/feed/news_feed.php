@@ -38,10 +38,12 @@ get_header(); #defaults to theme header or header_inc.php
 
 
     $req = $_GET['url'];
-if(!isset($_SESSION['feed'])){
+if(!isset($_SESSION['feed']) || isset($_GET['forcerefresh'])){
     $_SESSION['feed'] = file_get_contents($req);
+    $_SESSION['feedrefreshed'] = time();
 }
     $resp = $_SESSION['feed'];
+    echo "<h4>Last Refreshed " . date('r', $_SESSION['feedrefreshed']) . ' - <a href="' .$_SERVER['REQUEST_URI']. '&forcerefresh=1" style="color: red">Refresh Now?</a></h4>';
     $xml = simplexml_load_string($resp);
 
     //var_dump($xml);
