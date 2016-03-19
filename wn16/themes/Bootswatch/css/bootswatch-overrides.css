@@ -20,8 +20,21 @@ override the width of the container, or use LESS?
 http://stackoverflow.com/questions/15884102/bootstrap-how-do-i-change-the-width-of-the-container
 
 */
+#news-article {
+    border-bottom: 1px solid dodgerblue;
+    margin: 3% auto;
+}
+
+#news-article img {
+    display: none;
+}
+
+#news-article p {
+    line-height: 1.13em;
+}
 
 @media (min-width: 1200px) {
-.container{
-    max-width: 970px;
+    .container {
+        max-width: 970px;
+    }
 }

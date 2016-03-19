@@ -21,16 +21,14 @@ require '../inc_0700/config_inc.php'; #provides configuration, pathing, error ha
  *
  */
 
-# SQL statement
-# $sql = "select MuffinName, MuffinID, Price from test_Muffins";
-$sql = "SELECT CategoryID, CategoryName FROM wn16_newscategories";
+$sql = "select * from `wn16_newscategories`";
 
 #Fills <title> tag. If left empty will default to $PageTitle in config_inc.php  
-$config->titleTag = 'Muffins made with love & PHP in Seattle';
+$config->titleTag = 'News Feed List';
 
 #Fills <meta> tags.  Currently we're adding to the existing meta tags in config_inc.php
-$config->metaDescription = 'Seattle Central\'s ITC280 Class Muffins are made with pure PHP! ' . $config->metaDescription;
-$config->metaKeywords = 'Muffins,PHP,Fun,Bran,Regular,Regular Expressions,'. $config->metaKeywords;
+$config->metaDescription = 'Seattle Central\'s ITC280 P3 News Feed List ' . $config->metaDescription;
+$config->metaKeywords = 'News, Local, Tech'. $config->metaKeywords;
 
 /*
 $config->metaDescription = 'Web Database ITC281 class website.'; #Fills <meta> tags.
@@ -50,7 +48,6 @@ $config->nav1 = array("page.php"=>"New Page!") + $config->nav1; #add a new page 
 get_header(); #defaults to theme header or header_inc.php
 ?>
 <h3 align="center"><?=smartTitle();?></h3>
-
 <p>This page shows the list of news categories that we offer!</p>
 <p>Click any category to show news feeds available in that category.</p>
 
@@ -69,18 +66,15 @@ $result = mysqli_query(IDB::conn(),$sql) or die(trigger_error(mysqli_error(IDB::
  * RESULTS HERE
  *
  */
+
 if(mysqli_num_rows($result) > 0)
 {#records exist - process
     while($row = mysqli_fetch_assoc($result))
     {# process each row
-        # echo '<div align="center"><a href="' . VIRTUAL_PATH . 'demo/demo_view.php?id=' . (int)$row['MuffinID'] . '">' . dbOut($row['MuffinName']) . '</a>';
-        # echo ' <i>only</i> <font color="red">$' . number_format((float)$row['Price'],2)  . '</font></div>';
-        echo '<div align="center"><a href="' . VIRTUAL_PATH . 'demo/demo_view.php?id=' . (int)$row['CategoryID'] . '">' . dbOut($row['CategoryName']) . '</a>';
-        echo ' </div>';
-
+        echo '<div align="center"><a href="' . VIRTUAL_PATH . 'feed/news_view.php?id=' . (int)$row['CategoryID'] . '">' . dbOut($row['CategoryName']) . '</a>';
     }
 }else{#no records
-    echo "<div align=center>What! No muffins?  There must be a mistake!!</div>";
+    echo "<div align=center>No Records Found.</div>";
 }
 @mysqli_free_result($result);
 
