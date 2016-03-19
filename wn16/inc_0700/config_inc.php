@@ -41,8 +41,8 @@ header("Cache-Control: no-cache");header("Expires: -1");#Helps stop browser & pr
 
 # START CONSTANTS & PATHS (universal file paths & values)-----------------------------------------------------------------
 /* automatic path settings - use the following 4 path settings for placing all code in one application folder */ 
-define('VIRTUAL_PATH', 'http://itc250.denryu.net/ITC250-W16-GrpProj3/wn16/'); # Virtual (web) 'root' of application for images, JS & CSS files
-define('PHYSICAL_PATH', '/var/www/html/homework/itc250/ITC250-W16-GrpProj3/wn16/'); # Physical (PHP) 'root' of application for file & upload reference
+define('VIRTUAL_PATH', 'http://localhost/homework/itc250/a4-clientProtosite/wn16/'); # Virtual (web) 'root' of application for images, JS & CSS files
+define('PHYSICAL_PATH', '/var/www/html/homework/itc250/a4-clientProtosite/wn16/'); # Physical (PHP) 'root' of application for file & upload reference
 define('INCLUDE_PATH', PHYSICAL_PATH . 'inc_0700/'); # Path to PHP include files - INSIDE APPLICATION ROOT
 //define('INCLUDE_PATH', '/home/classes/horsey01/inc_cotlets/'); #Path to PHP include files - OUTSIDE WEB ROOT
 define('LOG_PATH', INCLUDE_PATH . 'log/'); # Log files are stored in the PHP include folder
@@ -57,6 +57,7 @@ include INCLUDE_PATH . 'credentials_inc.php'; # Stores DB credentials - part of 
 include INCLUDE_PATH . 'common_inc.php'; # Provides common utility functions - part of nmCommon package
 include INCLUDE_PATH . 'custom_inc.php'; # Provides spot for custom utility functions - part of nmCommon package
 include INCLUDE_PATH . 'MyAutoLoader.php'; #Allows multiple versions of AutoLoaded classes
+include INCLUDE_PATH . 'session_db_inc.php'; #Session database handling include file
 # END INCLUDES (reference include files)---------------------------------------------------------------------
 
 # CONTENT CONFIGURATION AREA (theme, content areas & nav arrays for header/footer )-----------------------------------------
@@ -91,7 +92,6 @@ $nav1['surveys/'] = "Surveys~The entrance to our Survey App";
 $nav1['demo/demo_shared.php'] = "MySQLi Shared~A demo page for building mysqli shared connection based applications.";
 $nav1['demo/demo_pdo.php'] = "PDO~A demo page for building PDO connection based applications.";
 $nav1['demo/demo_contact.php'] = "Contact~A demo for building postback forms";
-$nav1['news/'] = "News Feed";
 $config->nav1 = $nav1;  #add to global config object - now available in all header/footers
 $config->tableEditor = ADMIN_PATH . 'nmEdit.php'; # Table Editor part of nmEdit package
 # CONTENT CONFIGURATION AREA (theme, content areas & nav arrays for header/footer )-----------------------------------------

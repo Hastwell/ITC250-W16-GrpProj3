@@ -22,7 +22,8 @@ require '../inc_0700/config_inc.php'; #provides configuration, pathing, error ha
  */
 
 # SQL statement
-$sql = "select MuffinName, MuffinID, Price from test_Muffins";
+# $sql = "select MuffinName, MuffinID, Price from test_Muffins";
+$sql = "SELECT CategoryID, CategoryName FROM wn16_newscategories";
 
 #Fills <title> tag. If left empty will default to $PageTitle in config_inc.php  
 $config->titleTag = 'Muffins made with love & PHP in Seattle';
@@ -50,10 +51,13 @@ get_header(); #defaults to theme header or header_inc.php
 ?>
 <h3 align="center"><?=smartTitle();?></h3>
 
-<p>This page, along with <b>demo_view.php</b>, demonstrate a List/View web application.</p>
+<p>This page shows the list of news categories that we offer!</p>
+<p>Click any category to show news feeds available in that category.</p>
+
+<!--<p>This page, along with <b>demo_view.php</b>, demonstrate a List/View web application.</p>
 <p>It was built on the mysql shared web application page, <b>demo_shared.php</b></p>
 <p>This page is the entry point of the application, meaning this page gets a link on your web site.  Since the current subject is muffins, we could name the link something clever like <a href="<?php echo VIRTUAL_PATH; ?>demo_list.php">Muffins</a></p>
-<p>Use <b>demo_list.php</b> and <b>demo_view.php</b> as a starting point for building your own List/View web application!</p>
+<p>Use <b>demo_list.php</b> and <b>demo_view.php</b> as a starting point for building your own List/View web application!</p>-->
 <?php
 
 
@@ -69,8 +73,10 @@ if(mysqli_num_rows($result) > 0)
 {#records exist - process
     while($row = mysqli_fetch_assoc($result))
     {# process each row
-        echo '<div align="center"><a href="' . VIRTUAL_PATH . 'demo/demo_view.php?id=' . (int)$row['MuffinID'] . '">' . dbOut($row['MuffinName']) . '</a>';
-        echo ' <i>only</i> <font color="red">$' . number_format((float)$row['Price'],2)  . '</font></div>';
+        # echo '<div align="center"><a href="' . VIRTUAL_PATH . 'demo/demo_view.php?id=' . (int)$row['MuffinID'] . '">' . dbOut($row['MuffinName']) . '</a>';
+        # echo ' <i>only</i> <font color="red">$' . number_format((float)$row['Price'],2)  . '</font></div>';
+        echo '<div align="center"><a href="' . VIRTUAL_PATH . 'demo/demo_view.php?id=' . (int)$row['CategoryID'] . '">' . dbOut($row['CategoryName']) . '</a>';
+        echo ' </div>';
 
     }
 }else{#no records
